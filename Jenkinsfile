@@ -20,12 +20,12 @@ pipeline {
             steps {
                 dir('app') {
                     sh '''
-                        pip3 install -q flask pytest
+                        pip3 install -q --break-system-packages flask pytest
                         pytest test_app.py -v
                     '''
                 }
             }
-        }
+        }       
 
         stage('3. Build artefact') {
             steps {
